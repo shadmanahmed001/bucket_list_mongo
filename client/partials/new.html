@@ -1,0 +1,28 @@
+<!-- You will attach an ng-model and an ng-submit to your forms (but might want to wait until the next tab, when you have your controllers and factory) -->
+<div ng-controller = "newController">
+<form ng-submit = "create()">
+  <h5>This is the New Partial</h5>
+  First Name: <input type="text" ng-model = "newFriend.first_name" >
+  Last Name: <input type="text" ng-model = "newFriend.last_name" >
+  <input type="submit" value="Submit" >
+  <!-- Appropriate inputs here! -->
+</form>
+<table ng-if = "friends">
+   <tr>
+     <th>First Name</th>
+     <th>Last Name</th>
+     <th>Birthday</th>
+     <th>Edit</th>
+     <th>Delete</th>
+
+   </tr>
+   <tr ng-repeat = 'friend in friends track by $index'>
+     <td> <span ng-bind="friend.first_name"></span> </td>
+     <td> <span ng-bind="friend.last_name"></span> </td>
+     <td> <span ng-bind="friend.birthday"></span> </td>
+ <td><a href="#!/edit/{{friend._id}}">Edit</a></td>
+ <td><button ng-click = 'delete(friend)'>Delete</button></td>
+
+   </tr>
+ </table>
+</div>
